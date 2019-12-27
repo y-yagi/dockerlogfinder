@@ -10,7 +10,6 @@ import (
 
 	"github.com/docker/docker/api/types/filters"
 	"github.com/docker/docker/client"
-	"github.com/y-yagi/goext/arr"
 )
 
 func main() {
@@ -59,8 +58,11 @@ func search(location string, names []string, outStream io.Writer) {
 			return nil
 		}
 
-		if arr.Contains(names, info.Name()) {
-			fmt.Fprintf(outStream, "%s\n", path)
+		for _, name := range names {
+			matched, _ := filepath.Match(name, info.Name())
+			if matched {
+				fmt.Fprintf(outStream, "%s\n", path)
+			}
 		}
 
 		return nil
