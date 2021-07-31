@@ -30,13 +30,13 @@ func run(args []string) int {
 		return msg(err)
 	}
 
-	ok, err := cli.VolumeList(context.Background(), filters.NewArgs())
+	volumes, err := cli.VolumeList(context.Background(), filters.NewArgs())
 	if err != nil {
 		return msg(err)
 	}
 
 	var wg sync.WaitGroup
-	for _, volume := range ok.Volumes {
+	for _, volume := range volumes.Volumes {
 		wg.Add(1)
 		go func(location string) {
 			search(location, args[1:], os.Stdout)
