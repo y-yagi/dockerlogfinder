@@ -9,7 +9,9 @@ import (
 	"sync"
 
 	"github.com/docker/docker/api/types/filters"
+	"github.com/docker/docker/api/types/volume"
 	"github.com/docker/docker/client"
+	"github.com/olekukonko/tablewriter"
 )
 
 func main() {
@@ -33,6 +35,11 @@ func run(args []string) int {
 	volumes, err := cli.VolumeList(context.Background(), filters.NewArgs())
 	if err != nil {
 		return msg(err)
+	}
+
+	if args[1] == "--list" {
+		showList(volumes)
+		return 0
 	}
 
 	var wg sync.WaitGroup
@@ -71,4 +78,15 @@ func search(location string, names []string, outStream io.Writer) {
 	if err != nil {
 		fmt.Fprintf(outStream, "%v\n", err)
 	}
+}
+
+func showList(volumes volume.VolumeListOKBody) {
+	table := tablewriter.NewWriter(os.Stdout)
+	table.SetHeader([]string{"Driver", "Name", "Mountpoint"})
+
+	for _, volume := range volumes.Volumes {
+		table.Append([]string{volume.Driver, volume.Name, volume.Mountpoint})
+	}
+
+	table.Render()
 }
