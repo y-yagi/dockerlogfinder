@@ -17,7 +17,7 @@ require (
 	github.com/morikuni/aec v1.0.0 // indirect
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/opencontainers/go-digest v1.0.0-rc1 // indirect
-	github.com/opencontainers/image-spec v1.0.1 // indirect
+	github.com/opencontainers/image-spec v1.0.2 // indirect
 	github.com/sirupsen/logrus v1.4.2 // indirect
 	golang.org/x/time v0.3.0 // indirect
 	google.golang.org/genproto v0.0.0-20191223191004-3caeed10a8bf // indirect
