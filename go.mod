@@ -1,4 +1,4 @@
-module github.com/y-yagi/doco
+Modull github.com/y-yagi/dockerlogfinder
 
 go 1.16
 

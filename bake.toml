@@ -5,5 +5,5 @@ dependencies = ["build"]
 command = ["go", "build"]
 
 [install]
-command = ["sudo", "cp", "-p", "doco", "/usr/local/bin/"]
+command = ["sudo", "cp", "-p", "dockerlogfinder", "/usr/local/bin/"]
 dependencies = ["build"]
