@@ -80,7 +80,7 @@ func search(location string, names []string, outStream io.Writer) {
 	}
 }
 
-func showList(volumes volume.VolumeListOKBody) {
+func showList(volumes volume.ListResponse) {
 	table := tablewriter.NewWriter(os.Stdout)
 	table.SetHeader([]string{"Driver", "Name", "Mountpoint"})
 
