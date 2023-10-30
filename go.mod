@@ -3,7 +3,7 @@ module github.com/y-yagi/dockerlogfinder
 go 1.20
 
 require (
-	github.com/docker/docker v23.0.3+incompatible
+	github.com/docker/docker v24.0.7+incompatible
 	github.com/olekukonko/tablewriter v0.0.5
 )
 
